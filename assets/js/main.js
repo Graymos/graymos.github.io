@@ -187,4 +187,31 @@
 				}
 			});
 
+    // Section background theme transitions.
+    var sectionThemes = {
+      '#intro': 'linear-gradient(135deg, #0f172a 0%, #2f2b4c 100%)',
+      '#one': 'linear-gradient(135deg, #111827 0%, #312450 100%)',
+      '#two': 'linear-gradient(135deg, #08111f 0%, #1d2d45 100%)',
+      '#three': 'linear-gradient(135deg, #0c1531 0%, #173452 100%)'
+    };
+
+    function updateTheme() {
+      var pos = $window.scrollTop() + ($window.height() / 3);
+
+      Object.keys(sectionThemes).forEach(function(id) {
+        var $section = $(id);
+
+        if ($section.length) {
+          var top = $section.offset().top;
+          var bottom = top + $section.outerHeight();
+
+          if (pos >= top && pos < bottom) {
+            $body.css('background', sectionThemes[id]);
+          }
+        }
+      });
+    }
+
+    $window.on('scroll resize load', updateTheme);
+
 })(jQuery);
