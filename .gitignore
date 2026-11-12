@@ -1,0 +1,36 @@
+# Local project tooling and analysis state
+.serena/
+.tokensave/
+
+# Operating-system files
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+Desktop.ini
+
+# Editor and IDE metadata
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+.tmp/
+tmp/
+
+# Dependency and generated output directories
+node_modules/
+dist/
+build/
+coverage/
+.cache/

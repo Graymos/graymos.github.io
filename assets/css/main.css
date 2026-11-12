@@ -3943,7 +3943,7 @@ body {
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 1.2rem;
-    padding: 2rem;
+    padding: 3.5em 3em 1em 7em;
     transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
 }
 .features section:hover {
@@ -3978,4 +3978,78 @@ body {
 }
 #three .contact h3 {
     color: #ffffff;
+}
+#intro > .inner {
+    max-width: 75em;
+}
+#intro .intro-grid {
+    display: flex;
+    align-items: center;
+    gap: 4em;
+}
+#intro .intro-copy {
+    flex: 1 1 0;
+}
+#intro .intro-copy .actions {
+    margin-top: 2.5em;
+}
+#intro .intro-photo {
+    flex: 0 1 28em;
+}
+#intro .intro-photo img {
+    aspect-ratio: 4 / 3;
+    border-radius: 1.25em;
+    box-shadow: 0 1.5em 4em rgba(0,0,0,0.3);
+    object-fit: cover;
+    width: 100%;
+}
+#intro .eyebrow {
+    color: #a5b4fc;
+    font-size: 0.8em;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+}
+.wrapper > .inner {
+    max-width: 75em;
+}
+.spotlights > section > .content {
+    min-width: 0;
+}
+.features {
+    align-items: stretch;
+}
+.features section {
+    min-height: 100%;
+}
+@media screen and (max-width: 980px) {
+    #intro .intro-grid {
+        gap: 2em;
+    }
+    #intro .intro-photo {
+        flex-basis: 20em;
+    }
+}
+@media screen and (max-width: 736px) {
+    .features section {
+        padding: 2.5em 1.5em 0.1em 5.5em;
+    }
+}
+@media screen and (max-width: 480px) {
+    .features section {
+        padding: 2em 1.5em 0.1em 1.5em;
+    }
+}
+@media screen and (max-width: 736px) {
+    #intro .intro-grid {
+        flex-direction: column;
+        gap: 2em;
+    }
+    #intro .intro-photo {
+        width: 100%;
+    }
+    #intro .intro-photo img {
+        max-height: 18em;
+    }
 }
