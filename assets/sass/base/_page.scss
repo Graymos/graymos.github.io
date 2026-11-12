@@ -27,6 +27,7 @@
 	// Based on css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
 		html {
 			box-sizing: border-box;
+			max-width: 100%;
 		}
 
 		*, *:before, *:after {
@@ -35,6 +36,8 @@
 
 	body {
 		background: _palette(bg);
+		max-width: 100%;
+		overflow-x: hidden;
 
 		// Stops initial animations until page loads.
 			&.is-preload {

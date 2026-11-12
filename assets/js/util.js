@@ -5,8 +5,20 @@
 	 * @return {jQuery} jQuery object.
 	 */
 	$.fn.navList = function() {
+		var escapeAttribute = function(value) {
+			return String(value).replace(/[&<>"']/g, function(character) {
+				return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[character];
+			});
+		};
 
-		var	$this = $(this);
+		var safeHref = function(value) {
+			if (!value || /[\x00-\x20\x7f]/.test(value) || /%(?![0-9a-f]{2})/i.test(value))
+				return false;
+
+			return /^(?:#|\/(?!\/)|\.\/|\.\.\/|https:\/\/[^\s]+|mailto:[^\s]+)$/i.test(value);
+		};
+
+		var	$this = $(this),
 			$a = $this.find('a'),
 			b = [];
 
@@ -17,14 +29,16 @@
 				href = $this.attr('href'),
 				target = $this.attr('target');
 
+			var safeTarget = ['_blank', '_self', '_parent', '_top'].indexOf(target) != -1 ? target : null;
+
 			b.push(
 				'<a ' +
 					'class="link depth-' + indent + '"' +
-					( (typeof target !== 'undefined' && target != '') ? ' target="' + target + '"' : '') +
-					( (typeof href !== 'undefined' && href != '') ? ' href="' + href + '"' : '') +
+					( safeTarget ? ' target="' + escapeAttribute(safeTarget) + '"' : '') +
+					( safeHref(href) ? ' href="' + escapeAttribute(href) + '"' : '') +
 				'>' +
 					'<span class="indent-' + indent + '"></span>' +
-					$this.text() +
+					escapeAttribute($this.text()) +
 				'</a>'
 			);
 
@@ -166,8 +180,8 @@
 							// Redirect to href.
 								window.setTimeout(function() {
 
-									if (target == '_blank')
-										window.open(href);
+						if (target == '_blank')
+							window.open(href, '_blank', 'noopener,noreferrer');
 									else
 										window.location.href = href;
 

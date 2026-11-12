@@ -78,12 +78,17 @@
 				text-align: inherit;
 
 				> ul {
+					display: flex;
+					flex-wrap: wrap;
+					gap: 0.25em 1em;
+
 					> li {
-						margin-left: 1.5em;
+						margin-left: 0;
 
 						a {
-							height: 6em;
-							line-height: 6em;
+							min-height: 44px;
+							line-height: 1.5;
+							padding: 1em 0;
 						}
 					}
 				}

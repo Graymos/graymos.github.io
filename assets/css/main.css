@@ -4053,3 +4053,25 @@ body {
         max-height: 18em;
     }
 }
+html {
+    max-width: 100%;
+}
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+@media screen and (max-width: 480px) {
+    #header > nav > ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25em 1em;
+    }
+    #header > nav > ul > li {
+        margin-left: 0;
+    }
+    #header > nav > ul > li a {
+        min-height: 44px;
+        line-height: 1.5;
+        padding: 1em 0;
+    }
+}
